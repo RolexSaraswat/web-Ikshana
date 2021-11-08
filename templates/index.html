@@ -12,7 +12,7 @@
 	.input_image {
 		display: block;
 		max-width:100vw;
-		max-height:45vh;
+		max-height:100vh;
 		width: auto;
 		height: auto;
 	}
@@ -29,21 +29,21 @@
 	  <br> 
 	  <kbd id="output">Upload File and Click On Translate Button To Get The English Text From The Image </kbd>
 	  <br>
-	  <div style="margin-top: 20px;margin-bottom: 20px;" align="center" class="container">
+	  <div style="margin-top: 20px;margin-bottom: 20px;" align = "center"; class="container">
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="mb-3 mt-3">
+        <div class="mb-7 mt-7">
 	     <div id="alert_wrapper"></div>
     
-	<!--<h2 class="mb-3" style="font-weight: 300">Digest Braille Image</h2>-->
-          <div class="form-group mb-3">
-            <div class="custom-file">
+	<!--<h2 class="mb-3" style="font-weight: 300">Translate Braille Image</h2>-->
+          <div style="width: 30% ; text-align: left;" class="form-group mb-3">
+            <div  class="custom-file">
               <input type="file" class="custom-file-input" name="file_input" id="file_input" oninput="input_filename();">
-              <label id="file_input_label" class="custom-file-label" for="image">Select file</label>
+              <label style="margin-left: 60px;" id="file_input_label" class="custom-file-label" for="image">Select file</label>
             </div>
           </div>
-          <button onclick="upload('/digest');" id="upload_btn" class="btn btn-primary">Digest</button>
+          <button onclick="upload('/digest');" id="upload_btn" class="btn btn-primary">Translate</button>
           <button class="btn btn-primary d-none" id="loading_btn" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Uploading...
