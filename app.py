@@ -27,7 +27,7 @@ def fav():
 
 @app.route('/coverimage')
 def cover_image():
-    return send_file('samples/sample1.png', mimetype='image/png')
+    return send_file('samples/IKSH.png', mimetype='image/png')
 
 @app.route('/procimage/<string:img_id>')
 def proc_image(img_id):
@@ -72,4 +72,5 @@ def upload():
 
 if __name__ == "__main__":
     app.run()
+    
     tempdir.cleanup()
