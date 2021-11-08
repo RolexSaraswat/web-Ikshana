@@ -10,7 +10,7 @@ from OBR import SegmentationEngine,BrailleClassifier,BrailleImage
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 tempdir = tempfile.TemporaryDirectory()
 
-app = Flask("Optical Braille Recognition Demo")
+app = Flask("Ikshana")
 app.config['UPLOAD_FOLDER'] = tempdir.name
 
 def allowed_file(filename):
@@ -64,7 +64,7 @@ def upload():
 
         r = {
                 "error": False,
-                "message": "Processed and Digested successfully",
+                "message": "Processed and Translated successfully",
                 "img_id" : filename,
                 "digest" : classifier.digest()
         }
