@@ -151,6 +151,12 @@ class BrailleClassifier(object):
          (1,0,1,1,1,1): Symbol('y',letter=True),
          (1,0,1,0,1,1): Symbol('z',letter=True),
          (0,0,1,1,1,1): Symbol('#',special=True),
+         (0,0,1,1,1,1): Symbol('#',special=True),
+         (0,0,1,1,1,1): Symbol('#',special=True),
+         (0,0,1,1,1,1): Symbol('#',special=True),
+         (0,0,1,1,1,1): Symbol('#',special=True),
+         (0,0,1,1,1,1): Symbol('#',special=True),
+         
     }
     def __init__(self):
         self.result = ''

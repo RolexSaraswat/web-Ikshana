@@ -18,17 +18,17 @@
 	}
     </style>
   </head>
-  <body style="background-color: #efcad3;">
+  <body style="background-color: #efcad3;" onload="speech();">
   <div class="container">
 	  <br><br>
 
   
   <div align="center" class="container">
-	  <img src="https://i.ibb.co/VqhMPGR/IKSH.png" class="img-fluid">
+	  <img src="/nameimage" class="img-fluid">
 	  <img id="inputimage" src="/coverimage" class="img-fluid input_image" alt="Raw"/>
 
 	  <br> 
-	  <kbd id="output">Upload File and Click On Translate Button To Get The English Text From The Image </kbd>
+	  <kbd id="output" onchange="speech();">Upload File and Click On Translate Button To Get The English Text From The Image </kbd>
 	  <br>
 	  <div style="margin-top: 20px;margin-bottom: 20px;" align = "center"; class="container">
   <div class="container">
@@ -104,6 +104,12 @@
 			</button>
 			</div>`
 	    }
+		// Function to speech Output
+		function speech(){
+			var msg = new SpeechSynthesisUtterance();
+msg.text = document.getElementById("output").innerText;
+window.speechSynthesis.speak(msg);
+		}
 
 	    // Function to upload file
 	    function upload(url) {
@@ -177,6 +183,7 @@
 						          '?' +
 						           Date.now();
 					output_text.innerText = request.response.digest;
+
 				    	show_alert(`${request.response.message}`, "success");
 				    }
 			    }else {
@@ -240,6 +247,7 @@
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
