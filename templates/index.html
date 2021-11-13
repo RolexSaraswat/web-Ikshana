@@ -28,7 +28,7 @@
 	  <img id="inputimage" src="/coverimage" class="img-fluid input_image" alt="Raw"/>
 
 	  <br> 
-	  <kbd id="output" onchange="spech();">Upload File and Click On Translate Button To Get The English Text From The Image </kbd>
+	  <kbd id="output" onchange="speech();">Upload File and Click On Translate Button To Get The English Text From The Image </kbd>
 	  <br>
 	  <div style="margin-top: 20px;margin-bottom: 20px;" align = "center"; class="container">
   <div class="container">
@@ -178,6 +178,9 @@
 						          '?' +
 						           Date.now();
 					output_text.innerText = request.response.digest;
+					var msg = new SpeechSynthesisUtterance();
+msg.text = request.response.digest;
+window.speechSynthesis.speak(msg);
 
 				    	show_alert(`${request.response.message}`, "success");
 				    }
@@ -243,19 +246,11 @@
 	<script>
 			// Function to speech Output
 			function speech(){
-			
- var msg = document.getElementById("output").innerText;
-responsiveVoice.speak(msg);
+			var msg = new SpeechSynthesisUtterance();
+msg.text = document.getElementById("output").innerText;
+window.speechSynthesis.speak(msg);
 		}
 	</script>
-	<script>
-		// Function to speech Output
-		function spech(){
-		
-var msg = document.getElementById("output").innerText;
-responsiveVoice.speak(msg);
-	}
-</script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
