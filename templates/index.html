@@ -16,9 +16,105 @@
 		width: auto;
 		height: auto;
 	}
+
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+/* 8 */
+.btn-8 {
+  background-color: #f0ecfc;
+background-image: linear-gradient(315deg, #f0ecfc 0%, #13272c 74%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-8 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-8:before,
+.btn-8:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn-8:before{
+   height: 0%;
+   width: 2px;
+}
+.btn-8:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-8:hover:before {
+  height: 100%;
+}
+.btn-8:hover:after {
+  width: 100%;
+}
+.btn-8:hover{
+  background: transparent;
+}
+.btn-8 span:hover{
+  color: #c797eb;
+}
+.btn-8 span:before,
+.btn-8 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn-8 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-8 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-8 span:hover:before {
+  height: 100%;
+}
+.btn-8 span:hover:after {
+  width: 100%;
+}
+  
     </style>
   </head>
-  <body style="background-color: #efcad3;" onload="speech();">
+  <body style=" background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);" onload="speech();">
   <div class="container">
 	  <br><br>
 
@@ -45,7 +141,7 @@
               <label style="" id="file_input_label" class="custom-file-label" for="image">Select file</label>
             </div>
           </div>
-          <button onclick="upload('/digest');" id="upload_btn" class="btn btn-primary">Translate</button>
+          <button onclick="upload('/digest');" id="upload_btn" class="custom-btn btn-8">Translate</button>
           <button class="btn btn-primary d-none" id="loading_btn" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Uploading...
@@ -213,7 +309,12 @@ window.speechSynthesis.speak(msg);
 
 	    // Function to update the input placeholder
 	    function input_filename() {
-		    file_input_label.innerText = input.files[0].name;
+			var strg = input.files[0].name
+			if (strg.length > 20){
+		    file_input_label.innerText = strg.substr(0, 11) + '...' + str.substr(-11);}
+			else{
+				file_input_label.innerText = strg
+			}
 	    }
 
 	    // Function to reset the page
@@ -248,12 +349,12 @@ window.speechSynthesis.speak(msg);
 			function speech(){
 			var msg = new SpeechSynthesisUtterance();
 msg.text = document.getElementById("output").innerText;
-window.speechSynthesis.speak(msg);
+window.speechSynthesis.speak(msg)
 		}
 	</script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+	
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

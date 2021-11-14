@@ -30,7 +30,7 @@ def cover_image():
     return send_file('samples/IKSH.png', mimetype='image/png')
 @app.route('/nameimage')
 def name_image():
-    return send_file('samples/sss.png', mimetype='image/png')
+    return send_file('samples/rolex.png', mimetype='image/png')
 
 @app.route('/procimage/<string:img_id>')
 def proc_image(img_id):
