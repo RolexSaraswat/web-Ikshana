@@ -312,13 +312,15 @@ window.speechSynthesis.speak(msg);
 
 	    // Function to update the input placeholder
 	    function input_filename() {
-			var strg = input.files[0].name
-			if (strg.length > 20){
-		    file_input_label.innerText = strg.substr(0, 11) + '...' + str.substr(-11);}
-			else{
-				file_input_label.innerText = strg
-			}
-	    }
+			 
+			
+		   var x =  input.files[0].name.split('.').slice(0, -1).join('.');
+		   if (x.length >13){
+			 file_input_label.innerText = x.substring(0, 13);
+	    }else{
+			file_input_label.innerText = x
+		}
+	}
 
 	    // Function to reset the page
 	    function reset() {
