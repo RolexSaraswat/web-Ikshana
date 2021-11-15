@@ -145,6 +145,7 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #13272c 74%);
             </div>
           </div>
           <button onclick="upload('/digest');" id="upload_btn" class="custom-btn btn-8">Translate</button>
+		  <button type="button" onclick="play();" style="margin-top: 20px;margin-bottom: 20px;"  class="btn btn-primary btn-rounded btn-icon"> Play </button>
           <button class="btn btn-primary d-none" id="loading_btn" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Uploading...
@@ -203,6 +204,14 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #13272c 74%);
 			</button>
 			</div>`
 	    }
+		function play(){
+		
+			var msg = new SpeechSynthesisUtterance();
+			msg.text = output_text.innerText;
+			
+			window.speechSynthesis.speak(msg);
+
+		}
 	
 
 	    // Function to upload file
@@ -277,9 +286,7 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #13272c 74%);
 						          '?' +
 						           Date.now();
 					output_text.innerText = request.response.digest;
-					var msg = new SpeechSynthesisUtterance();
-msg.text = request.response.digest;
-window.speechSynthesis.speak(msg);
+					
 
 				    	show_alert(`${request.response.message}`, "success");
 				    }
