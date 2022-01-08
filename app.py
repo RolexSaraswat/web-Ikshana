@@ -43,12 +43,11 @@ def proc_image(img_id):
 
 @app.route('/digest', methods=['POST'])
 def upload():
-    # check if the post request has the file part
+  
     if 'file' not in request.files:
         return jsonify({"error" : True, "message" : "file not in request"})
     file = request.files['file']
-    # if user does not select file, browser also
-    # submit an empty part without filename
+   
     if file.filename == '':
         return jsonify({"error": True, "message" : "empty filename"})
     if file and allowed_file(file.filename):
