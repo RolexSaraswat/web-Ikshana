@@ -362,6 +362,8 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #13272c 74%);
 			var msg = new SpeechSynthesisUtterance();
 msg.text = document.getElementById("output").innerText;
 window.speechSynthesis.speak(msg)
+				Core.speak(msg)
+				
 		}
 	</script>
 
